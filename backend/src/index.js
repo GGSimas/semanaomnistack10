@@ -1,14 +1,14 @@
-import express from 'express';
-import route from './routes';
-import mongoose from 'mongoose';
+const express = require("express");
+const route = require("./routes");
+const mongoose = require("mongoose");
 
-
+//   "mongodb+srv://week10:week10@cluster0-2naru.mongodb.net/week10?retryWrites=true&w=majority",
 const app = express();
-mongoose.connect("mongodb+srv://week10:week10@cluster0-2naru.mongodb.net/week10?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-})
+mongoose.connect("mongodb://localhost:27017/week10", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+});
 
 app.use(express.json());
 app.use(route);
